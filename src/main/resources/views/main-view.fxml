@@ -4,16 +4,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 
+<?import javafx.scene.layout.HBox?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.MainController">
+            fx:controller="controllers.MainController" stylesheets="@../css/styles.css">
 
     <!-- Título de la ventana principal -->
-    <Label text="¡Bienvenido a la BibliotecaFX!" layoutX="120" layoutY="30" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+    <Label text="BibliotecaFX" style="-fx-font-size: 24; -fx-font-weight: bold;"
+           AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30"/>
 
-    <!-- Botones para cada sección -->
-    <Button text="Gestionar Libros" layoutX="50" layoutY="100" onAction="#handleGestionLibros"/>
-    <Button text="Gestionar Autores" layoutX="50" layoutY="150" onAction="#handleGestionAutores"/>
-    <Button text="Gestionar Préstamos" layoutX="50" layoutY="200" onAction="#handleGestionPrestamos"/>
-    <Button text="Gestionar Socios" layoutX="50" layoutY="250" onAction="#handleGestionSocios"/>
+    <!-- HBox para los botones en disposición horizontal -->
+    <HBox layoutX="30" layoutY="100" spacing="20">
+        <Button text="Gestionar Libros" onAction="#handleGestionLibros" />
+        <Button text="Gestionar Autores" onAction="#handleGestionAutores" />
+        <Button text="Gestionar Préstamos" onAction="#handleGestionPrestamos" />
+        <Button text="Gestionar Socios" onAction="#handleGestionSocios" />
+    </HBox>
 
 </AnchorPane>

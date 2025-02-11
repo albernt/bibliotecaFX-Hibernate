@@ -1,0 +1,23 @@
+/* Estilo general para la aplicación */
+.root {
+    -fx-background-color: #F0F0F0;
+}
+
+/* Estilo para el título */
+.label {
+    -fx-text-fill: #333333;
+}
+
+/* Estilo para los botones */
+.button {
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+}
+
+/* Estilo para el HBox (opcional) */
+.hbox {
+    -fx-alignment: center;
+}

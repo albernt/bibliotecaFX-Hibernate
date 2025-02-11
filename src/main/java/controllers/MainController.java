@@ -81,7 +81,7 @@ public class MainController {
         }
 
         // En lugar de cambiar el root de la Scene existente, creamos una nueva Scene
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 700, 400);
         stage.setScene(scene);
     }
 
