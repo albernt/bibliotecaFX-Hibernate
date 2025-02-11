@@ -8,7 +8,10 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="views.SocioView"
+            fx:controller="controllers.SocioController"
             prefHeight="400.0" prefWidth="600.0">
+
+    <Button text="Volver" layoutX="50" layoutY="100" onAction="#handleVolver"/>
+
 
 </AnchorPane>

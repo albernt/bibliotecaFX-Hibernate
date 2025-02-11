@@ -2,8 +2,18 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.MainController">
-    <Label text="¡Hola, BibliotecaFX!" layoutX="50" layoutY="50"/>
+
+    <!-- Título de la ventana principal -->
+    <Label text="¡Bienvenido a la BibliotecaFX!" layoutX="120" layoutY="30" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+    <!-- Botones para cada sección -->
+    <Button text="Gestionar Libros" layoutX="50" layoutY="100" onAction="#handleGestionLibros"/>
+    <Button text="Gestionar Autores" layoutX="50" layoutY="150" onAction="#handleGestionAutores"/>
+    <Button text="Gestionar Préstamos" layoutX="50" layoutY="200" onAction="#handleGestionPrestamos"/>
+    <Button text="Gestionar Socios" layoutX="50" layoutY="250" onAction="#handleGestionSocios"/>
+
 </AnchorPane>
