@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.LibroController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LibroController">
 
-    <Button text="Volver" layoutX="50" layoutY="100" onAction="#handleVolver"/>
+    <!-- Título de la ventana -->
+    <Label layoutX="50" layoutY="20" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Gestión de Libros" />
 
+    <!-- Campos de texto para ingresar información del libro -->
+    <VBox alignment="CENTER_LEFT" layoutX="50" layoutY="60" spacing="10">
+        <Label text="Título:" />
+        <TextField fx:id="tituloField" promptText="Introduce el título" />
+
+        <Label text="ISBN:" />
+        <TextField fx:id="isbnField" promptText="Introduce el ISBN" />
+
+        <Label text="Autor:" />
+        <TextField fx:id="autorField" promptText="Introduce el autor" />
+
+        <Label text="Editorial:" />
+        <TextField fx:id="editorialField" promptText="Introduce la editorial" />
+
+        <Label text="Año de publicación:" />
+        <TextField fx:id="anoPublicacionField" promptText="Introduce el año de publicación" />
+    </VBox>
+
+    <!-- Botones para las acciones (sin acción asociada por ahora) -->
+    <VBox alignment="CENTER_LEFT" layoutX="50" layoutY="250" spacing="10" />
+
+    <!-- Botón para volver a la vista principal con acción -->
+    <Button layoutX="509.0" layoutY="17.0" onAction="#handleVolver" text="Volver" />
+     <Button layoutX="390.0" layoutY="140.0" prefHeight="25.0" prefWidth="105.0" text="Eliminar" />
+     <Button layoutX="264.0" layoutY="244.0" prefHeight="25.0" prefWidth="105.0" text="Modificar" />
+     <Button layoutX="390.0" layoutY="244.0" prefHeight="25.0" prefWidth="105.0" text="Listar" />
+     <Button layoutX="264.0" layoutY="140.0" prefHeight="25.0" prefWidth="105.0" text="Añadir" />
 
 </AnchorPane>
