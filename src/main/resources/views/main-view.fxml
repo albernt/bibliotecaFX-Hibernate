@@ -10,7 +10,7 @@
 
     <!-- Título de la ventana principal -->
     <Label text="BibliotecaFX" style="-fx-font-size: 24; -fx-font-weight: bold;"
-           AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30"/>
+           AnchorPane.leftAnchor="280" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30"/>
 
     <!-- HBox para los botones en disposición horizontal -->
     <HBox layoutX="30" layoutY="100" spacing="20">

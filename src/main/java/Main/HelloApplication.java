@@ -18,6 +18,9 @@ public class HelloApplication extends Application {
 
         stage.setTitle("BibliotecaFX");
         stage.setScene(scene);
+
+        // Evitar que la ventana sea redimensionable
+        stage.setResizable(false);
         stage.show();
     }
 
