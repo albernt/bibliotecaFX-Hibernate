@@ -33,15 +33,15 @@
 
     <!-- Botones para las acciones -->
     <Button layoutX="817.0" layoutY="16.0" onAction="#handleVolver" text="Volver" />
-    <Button layoutX="540.0" layoutY="215.0" prefHeight="25.0" prefWidth="105.0" text="Eliminar" />
-    <Button layoutX="674.0" layoutY="156.0" prefHeight="37.0" prefWidth="105.0" text="Modificar" />
-    <Button layoutX="674.0" layoutY="215.0" prefHeight="25.0" prefWidth="105.0" text="Listar" />
-    <Button layoutX="540.0" layoutY="156.0" prefHeight="25.0" prefWidth="105.0" text="Añadir" />
+    <Button fx:id="btnEliminar" layoutX="540.0" layoutY="215.0" prefHeight="25.0" prefWidth="105.0" text="Eliminar" onAction="#handleEliminarLibro" />
+    <Button fx:id="btnModificar" layoutX="674.0" layoutY="156.0" prefHeight="37.0" prefWidth="105.0" text="Modificar" onAction="#handleModificarLibro" />
+    <Button fx:id="btnListar" layoutX="674.0" layoutY="215.0" prefHeight="25.0" prefWidth="105.0" text="Listar" onAction="#cargarLibrosEnTabla" />
+    <Button fx:id="btnAnadir" layoutX="540.0" layoutY="156.0" prefHeight="25.0" prefWidth="105.0" text="Añadir" onAction="#handleAgregarLibro" />
 
-     <Label layoutX="229.0" layoutY="148.0" text="Año de publicación:" />
-     <TextField fx:id="anoPublicacionField" layoutX="227.0" layoutY="177.0" promptText="Introduce el año de publicación" />
+    <Label layoutX="229.0" layoutY="148.0" text="Año de publicación:" />
+    <TextField fx:id="anoPublicacionField" layoutX="227.0" layoutY="177.0" promptText="Introduce el año de publicación" />
 
-     <Label layoutX="227.0" layoutY="212.0" text="Editorial:" />
-     <TextField fx:id="editorialField" layoutX="227.0" layoutY="237.0" promptText="Introduce la editorial" />
+    <Label layoutX="227.0" layoutY="212.0" text="Editorial:" />
+    <TextField fx:id="editorialField" layoutX="227.0" layoutY="237.0" promptText="Introduce la editorial" />
 
 </AnchorPane>

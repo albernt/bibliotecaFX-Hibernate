@@ -3,6 +3,7 @@ package DAO;
 import entities.Libro;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import Util.HibernateUtil;
 
 import java.util.List;
@@ -15,10 +16,12 @@ public class LibroDAOImpl implements LibroDAO {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(libro);  // Guardamos el libro en la base de datos
+            session.persist(libro); // Inserta el objeto
             transaction.commit();
+            System.out.println("Libro guardado: " + libro.getTitulo());
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
+            System.err.println("Error al guardar libro: " + e.getMessage());
             e.printStackTrace();
         } finally {
             session.close();
@@ -31,7 +34,7 @@ public class LibroDAOImpl implements LibroDAO {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.update(libro);  // Actualizamos el libro en la base de datos
+            session.update(libro);  // Actualiza el libro en la BD
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
@@ -47,11 +50,14 @@ public class LibroDAOImpl implements LibroDAO {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            Libro libro = session.get(Libro.class, isbn);  // Buscamos el libro por su ISBN
+            // Como 'isbn' no es la clave primaria, buscamos el libro mediante una consulta HQL.
+            Query<Libro> query = session.createQuery("FROM Libro WHERE isbn = :isbn", Libro.class);
+            query.setParameter("isbn", isbn);
+            Libro libro = query.uniqueResult();
             if (libro != null) {
-                session.delete(libro);  // Eliminar el libro
-                transaction.commit();
+                session.delete(libro);  // Elimina el libro encontrado
             }
+            transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
@@ -65,7 +71,9 @@ public class LibroDAOImpl implements LibroDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Libro libro = null;
         try {
-            libro = session.get(Libro.class, isbn);  // Obtenemos el libro por su ISBN
+            libro = session.createQuery("FROM Libro WHERE isbn = :isbn", Libro.class)
+                    .setParameter("isbn", isbn)
+                    .uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -79,7 +87,9 @@ public class LibroDAOImpl implements LibroDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Libro libro = null;
         try {
-            libro = session.get(Libro.class, autor);  // Obtenemos el libro por su ISBN
+            libro = session.createQuery("FROM Libro WHERE autor = :autor", Libro.class)
+                    .setParameter("autor", autor)
+                    .uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -93,7 +103,9 @@ public class LibroDAOImpl implements LibroDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Libro libro = null;
         try {
-            libro = session.get(Libro.class, titulo);  // Obtenemos el libro por su ISBN
+            libro = session.createQuery("FROM Libro WHERE titulo = :titulo", Libro.class)
+                    .setParameter("titulo", titulo)
+                    .uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -107,7 +119,7 @@ public class LibroDAOImpl implements LibroDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Libro> libros = null;
         try {
-            libros = session.createQuery("from Libro", Libro.class).list();  // Obtenemos todos los libros
+            libros = session.createQuery("FROM Libro", Libro.class).list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

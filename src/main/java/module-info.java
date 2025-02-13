@@ -6,7 +6,7 @@ module org.example.bibliotecafx {
     requires org.hibernate.orm.core;
     requires jakarta.persistence;
     requires java.naming;
-    requires java.persistence;
+
 
     opens controllers to javafx.fxml;
     opens entities to org.hibernate.orm.core;

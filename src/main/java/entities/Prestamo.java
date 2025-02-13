@@ -1,11 +1,6 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.Column;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -20,9 +15,10 @@ public class Prestamo {
     @JoinColumn(name = "socio_id", referencedColumnName = "id", nullable = false)  // Columna que referencia la tabla Socio
     private Socio socio;
 
-    @ManyToOne  // Relación muchos a uno con la clase Libro
-    @JoinColumn(name = "libro_isbn", referencedColumnName = "isbn", nullable = false)  // Columna que referencia la tabla Libro
+    @ManyToOne
+    @JoinColumn(name = "libro_id", referencedColumnName = "id", nullable = false)
     private Libro libro;
+
 
     @Column(name = "fecha_prestamo", nullable = false)  // Fecha del préstamo
     private Date fechaPrestamo;
