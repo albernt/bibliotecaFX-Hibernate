@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 public class Autor {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Generación automática del ID
     @Column(name = "id")  // Especifica la columna para la clave primaria
     private Long id;  // Usamos Long para el ID (puede ser otro tipo, dependiendo de tus necesidades)
 

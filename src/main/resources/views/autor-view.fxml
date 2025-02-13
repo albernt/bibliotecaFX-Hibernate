@@ -23,6 +23,8 @@
     <!-- Tabla para mostrar la lista de autores -->
     <TableView fx:id="tablaAutores" layoutY="256.0" prefHeight="500.0" prefWidth="935.0">
         <columns>
+            <!-- Columna para el ID -->
+            <TableColumn fx:id="colId" prefWidth="100.0" text="ID" />
             <TableColumn fx:id="colNombre" prefWidth="469.0" text="Nombre" />
             <TableColumn fx:id="colNacionalidad" prefWidth="362.0" text="Nacionalidad" />
         </columns>
@@ -30,10 +32,10 @@
 
     <!-- Botón para volver -->
     <Button layoutX="816.0" layoutY="20.0" onAction="#handleVolver" text="Volver" />
-     <Button layoutX="257.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" text="Añadir" />
-     <Button layoutX="257.0" layoutY="133.0" text="Modificar" />
-     <Button layoutX="373.0" layoutY="159.0" prefHeight="37.0" prefWidth="95.0" text="Buscar" />
-     <Button layoutX="373.0" layoutY="95.0" prefHeight="37.0" prefWidth="95.0" text="Eliminar" />
-     <Button layoutX="256.0" layoutY="193.0" prefHeight="37.0" prefWidth="95.0" text="Listar" />
+     <Button layoutX="257.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" text="Añadir" onAction="#handleAgregarAutor"/>
+     <Button layoutX="257.0" layoutY="133.0" text="Modificar" onAction="#handleModificarAutor"/>
+     <Button layoutX="373.0" layoutY="159.0" prefHeight="37.0" prefWidth="95.0" text="Buscar" onAction="#handleBuscarAutor"/>
+     <Button layoutX="373.0" layoutY="95.0" prefHeight="37.0" prefWidth="95.0" text="Eliminar" onAction="#handleEliminarAutor"/>
+     <Button layoutX="256.0" layoutY="193.0" prefHeight="37.0" prefWidth="95.0" text="Listar" onAction="#cargarAutoresEnTabla"/>
 
 </AnchorPane>
