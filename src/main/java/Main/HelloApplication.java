@@ -10,7 +10,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 400); // Tamaño de la ventana
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600); // Tamaño de la ventana
 
         // Obtener el controlador y pasarle el Stage
         MainController controller = fxmlLoader.getController();

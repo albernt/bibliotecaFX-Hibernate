@@ -3,13 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LibroController">
+<AnchorPane prefHeight="900.0" prefWidth="1000.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LibroController">
 
     <!-- Título de la ventana -->
-    <Label layoutX="50" layoutY="20" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Gestión de Libros" />
+    <Label layoutX="29.0" layoutY="20.0" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Gestión de Libros" />
 
     <!-- Campos de texto para ingresar información del libro -->
-    <VBox alignment="CENTER_LEFT" layoutX="50" layoutY="60" spacing="10">
+    <VBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="116.0" spacing="10">
         <Label text="Título:" />
         <TextField fx:id="tituloField" promptText="Introduce el título" />
 
@@ -18,22 +18,30 @@
 
         <Label text="Autor:" />
         <TextField fx:id="autorField" promptText="Introduce el autor" />
-
-        <Label text="Editorial:" />
-        <TextField fx:id="editorialField" promptText="Introduce la editorial" />
-
-        <Label text="Año de publicación:" />
-        <TextField fx:id="anoPublicacionField" promptText="Introduce el año de publicación" />
     </VBox>
 
-    <!-- Botones para las acciones (sin acción asociada por ahora) -->
-    <VBox alignment="CENTER_LEFT" layoutX="50" layoutY="250" spacing="10" />
+    <!-- Tabla para mostrar los libros -->
+    <TableView fx:id="tablaLibros" layoutX="-6.0" layoutY="350.0" prefHeight="448.0" prefWidth="1015.0">
+        <columns>
+            <TableColumn fx:id="colTitulo" prefWidth="196.0" text="Título" />
+            <TableColumn fx:id="colISBN" prefWidth="154.99998474121094" text="ISBN" />
+            <TableColumn fx:id="colAutor" prefWidth="233.66665649414062" text="Autor" />
+            <TableColumn fx:id="colEditorial" prefWidth="218.3333740234375" text="Editorial" />
+            <TableColumn fx:id="colAno" minWidth="0.0" prefWidth="114.3333740234375" text="Año" />
+        </columns>
+    </TableView>
 
-    <!-- Botón para volver a la vista principal con acción -->
-    <Button layoutX="509.0" layoutY="17.0" onAction="#handleVolver" text="Volver" />
-     <Button layoutX="390.0" layoutY="140.0" prefHeight="25.0" prefWidth="105.0" text="Eliminar" />
-     <Button layoutX="264.0" layoutY="244.0" prefHeight="25.0" prefWidth="105.0" text="Modificar" />
-     <Button layoutX="390.0" layoutY="244.0" prefHeight="25.0" prefWidth="105.0" text="Listar" />
-     <Button layoutX="264.0" layoutY="140.0" prefHeight="25.0" prefWidth="105.0" text="Añadir" />
+    <!-- Botones para las acciones -->
+    <Button layoutX="817.0" layoutY="16.0" onAction="#handleVolver" text="Volver" />
+    <Button layoutX="411.0" layoutY="156.0" prefHeight="25.0" prefWidth="105.0" text="Eliminar" />
+    <Button layoutX="545.0" layoutY="97.0" prefHeight="37.0" prefWidth="105.0" text="Modificar" />
+    <Button layoutX="545.0" layoutY="156.0" prefHeight="25.0" prefWidth="105.0" text="Listar" />
+    <Button layoutX="411.0" layoutY="97.0" prefHeight="25.0" prefWidth="105.0" text="Añadir" />
+
+     <Label layoutX="229.0" layoutY="148.0" text="Año de publicación:" />
+     <TextField fx:id="anoPublicacionField" layoutX="227.0" layoutY="177.0" promptText="Introduce el año de publicación" />
+
+     <Label layoutX="227.0" layoutY="212.0" text="Editorial:" />
+     <TextField fx:id="editorialField" layoutX="227.0" layoutY="237.0" promptText="Introduce la editorial" />
 
 </AnchorPane>

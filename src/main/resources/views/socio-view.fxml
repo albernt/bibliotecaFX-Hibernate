@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.SocioController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SocioController">
 
-    <Button text="Volver" layoutX="50" layoutY="100" onAction="#handleVolver"/>
+    <!-- Título de la ventana -->
+    <Label layoutX="50" layoutY="20" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Gestión de Socios" />
 
+    <!-- Campos de entrada -->
+    <VBox alignment="CENTER_LEFT" layoutX="50" layoutY="60" spacing="10">
+        <Label text="Nombre:" />
+        <TextField fx:id="nombreField" promptText="Introduce el nombre" />
+
+        <Label text="Dirección:" />
+        <TextField fx:id="direccionField" promptText="Introduce la dirección" />
+
+        <Label text="Teléfono:" />
+        <TextField fx:id="telefonoField" promptText="Introduce el número de teléfono" />
+    </VBox>
+
+    <!-- Botones de acción -->
+    <HBox layoutX="50" layoutY="200" spacing="10" />
+
+    <!-- Tabla para mostrar los socios -->
+    <TableView fx:id="tablaSocios" layoutX="50" layoutY="250" prefHeight="200" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colNombre" prefWidth="200" text="Nombre" />
+            <TableColumn fx:id="colDireccion" prefWidth="250" text="Dirección" />
+            <TableColumn fx:id="colTelefono" prefWidth="150" text="Teléfono" />
+        </columns>
+    </TableView>
+
+    <!-- Botón para volver -->
+    <Button layoutX="600" layoutY="20" onAction="#handleVolver" text="Volver" />
+     <Button layoutX="244.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" text="Añadir" />
+     <Button layoutX="244.0" layoutY="140.0" text="Modificar" />
+     <Button layoutX="243.0" layoutY="200.0" prefHeight="37.0" prefWidth="95.0" text="Buscar" />
+     <Button layoutX="363.0" layoutY="114.0" prefHeight="37.0" prefWidth="95.0" text="Eliminar" />
+     <Button layoutX="363.0" layoutY="171.0" prefHeight="37.0" prefWidth="95.0" text="Listar" />
 
 </AnchorPane>

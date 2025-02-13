@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.layout.HBox?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.MainController" stylesheets="@../css/styles.css">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="controllers.MainController">
 
     <!-- Título de la ventana principal -->
-    <Label text="BibliotecaFX" style="-fx-font-size: 24; -fx-font-weight: bold;"
-           AnchorPane.leftAnchor="280" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30"/>
+    <Label layoutX="378.0" layoutY="149.0" prefHeight="29.0" prefWidth="142.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="BibliotecaFX" AnchorPane.leftAnchor="378.0" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="149.0">
+      <font>
+         <Font size="36.0" />
+      </font></Label>
 
     <!-- HBox para los botones en disposición horizontal -->
-    <HBox layoutX="30" layoutY="100" spacing="20">
-        <Button text="Gestionar Libros" onAction="#handleGestionLibros" />
-        <Button text="Gestionar Autores" onAction="#handleGestionAutores" />
-        <Button text="Gestionar Préstamos" onAction="#handleGestionPrestamos" />
-        <Button text="Gestionar Socios" onAction="#handleGestionSocios" />
+    <HBox layoutX="137.0" layoutY="262.0" spacing="20">
+        <Button onAction="#handleGestionLibros" text="Gestionar Libros" />
+        <Button onAction="#handleGestionAutores" text="Gestionar Autores" />
+        <Button onAction="#handleGestionPrestamos" text="Gestionar Préstamos" />
+        <Button onAction="#handleGestionSocios" text="Gestionar Socios" />
     </HBox>
 
 </AnchorPane>
