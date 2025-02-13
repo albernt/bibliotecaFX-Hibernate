@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SocioController">
+<AnchorPane prefHeight="900.0" prefWidth="1000.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SocioController">
 
     <!-- Título de la ventana -->
     <Label layoutX="50" layoutY="20" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Gestión de Socios" />
@@ -24,16 +24,16 @@
     <HBox layoutX="50" layoutY="200" spacing="10" />
 
     <!-- Tabla para mostrar los socios -->
-    <TableView fx:id="tablaSocios" layoutX="50" layoutY="250" prefHeight="200" prefWidth="600">
+    <TableView fx:id="tablaSocios" layoutX="-27.0" layoutY="275.0" prefHeight="336.0" prefWidth="926.0">
         <columns>
-            <TableColumn fx:id="colNombre" prefWidth="200" text="Nombre" />
-            <TableColumn fx:id="colDireccion" prefWidth="250" text="Dirección" />
-            <TableColumn fx:id="colTelefono" prefWidth="150" text="Teléfono" />
+            <TableColumn fx:id="colNombre" prefWidth="232.0" text="Nombre" />
+            <TableColumn fx:id="colDireccion" prefWidth="442.0" text="Dirección" />
+            <TableColumn fx:id="colTelefono" prefWidth="261.0" text="Teléfono" />
         </columns>
     </TableView>
 
     <!-- Botón para volver -->
-    <Button layoutX="600" layoutY="20" onAction="#handleVolver" text="Volver" />
+    <Button layoutX="816.0" layoutY="32.0" onAction="#handleVolver" text="Volver" />
      <Button layoutX="244.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" text="Añadir" />
      <Button layoutX="244.0" layoutY="140.0" text="Modificar" />
      <Button layoutX="243.0" layoutY="200.0" prefHeight="37.0" prefWidth="95.0" text="Buscar" />

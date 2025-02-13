@@ -3,13 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AutorController">
+<AnchorPane prefHeight="900.0" prefWidth="1000.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AutorController">
 
     <!-- Título de la ventana -->
     <Label layoutX="50" layoutY="20" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Gestión de Autores" />
 
     <!-- Campos de entrada -->
-    <VBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="94.0" spacing="10">
+    <VBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="95.0" spacing="10">
         <Label text="Nombre:" />
         <TextField fx:id="nombreField" promptText="Introduce el nombre del autor" />
 
@@ -21,19 +21,19 @@
     <HBox layoutX="50" layoutY="160" spacing="10" />
 
     <!-- Tabla para mostrar la lista de autores -->
-    <TableView fx:id="tablaAutores" layoutX="50.0" layoutY="256.0" prefHeight="200" prefWidth="600">
+    <TableView fx:id="tablaAutores" layoutY="256.0" prefHeight="500.0" prefWidth="935.0">
         <columns>
-            <TableColumn fx:id="colNombre" prefWidth="300" text="Nombre" />
-            <TableColumn fx:id="colNacionalidad" prefWidth="300" text="Nacionalidad" />
+            <TableColumn fx:id="colNombre" prefWidth="469.0" text="Nombre" />
+            <TableColumn fx:id="colNacionalidad" prefWidth="362.0" text="Nacionalidad" />
         </columns>
     </TableView>
 
     <!-- Botón para volver -->
-    <Button layoutX="600.0" layoutY="20.0" onAction="#handleVolver" text="Volver" />
-     <Button layoutX="254.0" layoutY="59.0" prefHeight="37.0" prefWidth="95.0" text="Añadir" />
-     <Button layoutX="254.0" layoutY="115.0" text="Modificar" />
-     <Button layoutX="370.0" layoutY="141.0" prefHeight="37.0" prefWidth="95.0" text="Buscar" />
-     <Button layoutX="370.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" text="Eliminar" />
-     <Button layoutX="253.0" layoutY="175.0" prefHeight="37.0" prefWidth="95.0" text="Listar" />
+    <Button layoutX="816.0" layoutY="20.0" onAction="#handleVolver" text="Volver" />
+     <Button layoutX="257.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" text="Añadir" />
+     <Button layoutX="257.0" layoutY="133.0" text="Modificar" />
+     <Button layoutX="373.0" layoutY="159.0" prefHeight="37.0" prefWidth="95.0" text="Buscar" />
+     <Button layoutX="373.0" layoutY="95.0" prefHeight="37.0" prefWidth="95.0" text="Eliminar" />
+     <Button layoutX="256.0" layoutY="193.0" prefHeight="37.0" prefWidth="95.0" text="Listar" />
 
 </AnchorPane>
