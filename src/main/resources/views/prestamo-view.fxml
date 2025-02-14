@@ -11,16 +11,16 @@
     <!-- Campos de entrada -->
     <VBox alignment="CENTER_LEFT" layoutX="50" layoutY="60" spacing="10">
         <Label text="Socio:" />
-        <TextField fx:id="socioField" promptText="Introduce el nombre o ID del socio" />
+        <TextField fx:id="socioIdField" promptText="Introduce el nombre o ID del socio" />
 
         <Label text="Libro:" />
-        <TextField fx:id="libroField" promptText="Introduce el título o ID del libro" />
+        <TextField fx:id="libroIdField" promptText="Introduce el título o ID del libro" />
 
         <Label text="Fecha de Préstamo:" />
-        <DatePicker fx:id="fechaPrestamoPicker" />
+        <DatePicker fx:id="fechaPrestamoField" />
 
         <Label text="Fecha de Devolución:" />
-        <DatePicker fx:id="fechaDevolucionPicker" />
+        <DatePicker fx:id="fechaDevolucionField" />
     </VBox>
 
     <!-- Botones de acción -->
@@ -38,8 +38,7 @@
 
     <!-- Botón para volver -->
     <Button layoutX="818.0" layoutY="20.0" onAction="#handleVolver" text="Volver" />
-     <Button layoutX="371.0" layoutY="106.0" prefHeight="37.0" prefWidth="184.0" text="Registrar Préstamo" />
-     <Button layoutX="371.0" layoutY="166.0" text="Listar Préstamos Actuales" />
+     <Button layoutX="371.0" layoutY="106.0" prefHeight="37.0" prefWidth="184.0" text="Registrar Préstamo" onAction="#handleRegistrarPrestamo" />
      <Button layoutX="371.0" layoutY="230.0" prefHeight="37.0" prefWidth="184.0" text="Ver Historial" />
 
 </AnchorPane>
