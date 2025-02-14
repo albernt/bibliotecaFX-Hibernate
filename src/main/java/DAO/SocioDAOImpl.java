@@ -8,102 +8,77 @@ import java.util.List;
 
 public class SocioDAOImpl {
 
-    // Método para agregar un socio
     public void agregarSocio(Socio socio) {
-        // Obtener la sesión de Hibernate desde HibernateUtil
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
 
         try {
-            // Iniciar la transacción
             transaction = session.beginTransaction();
             System.out.println("Guardando socio: " + socio.toString());
 
-            // Guardar el objeto en la base de datos
             session.save(socio);
 
-            // Confirmar la transacción
             transaction.commit();
             System.out.println("Socio guardado correctamente.");
         } catch (Exception e) {
-            // En caso de error, hacer rollback
             if (transaction != null) {
                 transaction.rollback();
             }
             System.err.println("Error durante la transacción:");
             e.printStackTrace();
         } finally {
-            // Cerramos la sesión al final
             session.close();
         }
     }
 
 
-    // Método para modificar un socio
     public void modificarSocio(Socio socio) {
-        // Obtener la sesión de Hibernate desde HibernateUtil
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
 
         try {
-            // Iniciar la transacción
             transaction = session.beginTransaction();
 
-            // Actualizar el socio
             session.update(socio);
 
-            // Confirmar la transacción
             transaction.commit();
         } catch (Exception e) {
-            // En caso de error, hacer rollback
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
         } finally {
-            // Cerramos la sesión al final
             session.close();
         }
     }
 
-    // Método para eliminar un socio
     public void eliminarSocio(Long id) {
-        // Obtener la sesión de Hibernate desde HibernateUtil
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
 
         try {
-            // Iniciar la transacción
             transaction = session.beginTransaction();
 
-            // Buscar el socio por ID
             Socio socio = session.get(Socio.class, id);
             if (socio != null) {
-                // Eliminar el socio
                 session.delete(socio);
             }
 
-            // Confirmar la transacción
             transaction.commit();
         } catch (Exception e) {
-            // En caso de error, hacer rollback
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
         } finally {
-            // Cerramos la sesión al final
             session.close();
         }
     }
 
-    // Método para listar todos los socios
     public List<Socio> listarSocios() {
-        // Obtener la sesión de Hibernate desde HibernateUtil
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
-            // Iniciar la transacción
             session.beginTransaction();
 
             // Consultar todos los socios

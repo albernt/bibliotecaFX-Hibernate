@@ -4,6 +4,9 @@ import DAO.PrestamoDAOImpl;
 import entities.Prestamo;
 import entities.Libro;
 import entities.Socio;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -15,6 +18,8 @@ import java.util.Date;
 import java.util.List;
 
 public class PrestamoController {
+    private final ObservableList<Prestamo> listaPrestamos = FXCollections.observableArrayList();
+
 
     @FXML
     private TextField socioIdField, libroIdField;
@@ -38,14 +43,26 @@ public class PrestamoController {
     @FXML
     public void initialize() {
         configurarColumnasTabla();
+        tablaPrestamos.setItems(listaPrestamos); // Vincula la lista a la tabla
         cargarPrestamosActivos();
     }
 
     private void configurarColumnasTabla() {
-        colLibro.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getLibro().getTitulo()));
-        colSocio.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getSocio().getNombre()));
-        colFechaPrestamo.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getFechaPrestamo().toString()));
-        colFechaDevolucion.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getFechaDevolucion() != null ? cellData.getValue().getFechaDevolucion().toString() : "No devuelto"));
+        colSocio.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getSocio().getNombre()));
+
+        colLibro.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getLibro().getTitulo()));
+
+        colFechaPrestamo.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getFechaPrestamo().toString()));
+
+        colFechaDevolucion.setCellValueFactory(cellData ->
+                new SimpleStringProperty(
+                        cellData.getValue().getFechaDevolucion() != null
+                                ? cellData.getValue().getFechaDevolucion().toString()
+                                : "No devuelto"
+                ));
     }
 
     @FXML

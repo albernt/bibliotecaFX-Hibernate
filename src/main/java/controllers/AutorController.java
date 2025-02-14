@@ -35,35 +35,30 @@ public class AutorController {
     @FXML
     private TableColumn<Autor, String> colNombre, colNacionalidad;
 
-    // Este método se llama para pasar el Stage de la ventana principal
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
     @FXML
     public void initialize() {
-        // Configurar las columnas de la tabla
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colNacionalidad.setCellValueFactory(new PropertyValueFactory<>("nacionalidad"));
 
-        // Cargar los autores en la tabla
         cargarAutoresEnTabla();
     }
 
-    // Método para cargar los autores en la tabla
     @FXML
     private void cargarAutoresEnTabla() {
         List<Autor> autores = autorDAO.listarTodosLosAutores();
         if (autores != null) {
             listaAutores.setAll(autores);
         } else {
-            listaAutores.clear();  // Si es null, limpiamos la lista
+            listaAutores.clear();
         }
         tablaAutores.setItems(listaAutores);
     }
 
-    // Método para agregar un autor
     @FXML
     private void handleAgregarAutor() {
         String nombre = nombreField.getText();
@@ -74,7 +69,7 @@ public class AutorController {
             return;
         }
 
-        Autor nuevoAutor = new Autor(null, nombre, nacionalidad); // El ID se generará automáticamente
+        Autor nuevoAutor = new Autor(null, nombre, nacionalidad);
         if (autorDAO.agregarAutor(nuevoAutor)) {
             listaAutores.add(nuevoAutor);
             limpiarCampos();
@@ -84,7 +79,6 @@ public class AutorController {
         }
     }
 
-    // Método para modificar un autor
     @FXML
     private void handleModificarAutor() {
         Autor autorSeleccionado = tablaAutores.getSelectionModel().getSelectedItem();
@@ -112,7 +106,6 @@ public class AutorController {
         }
     }
 
-    // Método para eliminar un autor
     @FXML
     private void handleEliminarAutor() {
         Autor autorSeleccionado = tablaAutores.getSelectionModel().getSelectedItem();
@@ -129,7 +122,6 @@ public class AutorController {
         }
     }
 
-    // Método para buscar autores por nombre
     @FXML
     private void handleBuscarAutor() {
         String nombre = nombreField.getText();
@@ -147,14 +139,12 @@ public class AutorController {
         }
     }
 
-    // Método para limpiar los campos de texto
     private void limpiarCampos() {
         idField.clear();
         nombreField.clear();
         nacionalidadField.clear();
     }
 
-    // Método para mostrar una alerta
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
@@ -163,29 +153,25 @@ public class AutorController {
         alert.showAndWait();
     }
 
-    // Método para volver a la vista principal
     @FXML
     public void handleVolver() {
         try {
             System.out.println("Volviendo a la vista principal...");
-            cargarVista("main-view.fxml");  // Cargar la vista principal
+            cargarVista("main-view.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Método para cargar una vista
     private void cargarVista(String vista) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/" + vista));
         AnchorPane root = fxmlLoader.load();
 
-        // Asegúrate de pasar el Stage al controlador de la nueva vista
         if (fxmlLoader.getController() instanceof MainController) {
             MainController controller = (MainController) fxmlLoader.getController();
             controller.setStage(stage);
         }
 
-        // Cambiar el contenido de la ventana
         stage.getScene().setRoot(root);
     }
 }
