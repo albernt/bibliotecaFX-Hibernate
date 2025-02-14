@@ -34,10 +34,10 @@
 
     <!-- Botón para volver -->
     <Button layoutX="816.0" layoutY="32.0" onAction="#handleVolver" text="Volver" />
-     <Button layoutX="244.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" text="Añadir" />
-     <Button layoutX="244.0" layoutY="140.0" text="Modificar" />
-     <Button layoutX="243.0" layoutY="200.0" prefHeight="37.0" prefWidth="95.0" text="Buscar" />
-     <Button layoutX="363.0" layoutY="114.0" prefHeight="37.0" prefWidth="95.0" text="Eliminar" />
-     <Button layoutX="363.0" layoutY="171.0" prefHeight="37.0" prefWidth="95.0" text="Listar" />
+     <Button layoutX="244.0" layoutY="77.0" prefHeight="37.0" prefWidth="95.0" onAction="#handleAñadir" text="Añadir" />
+     <Button layoutX="244.0" layoutY="140.0" onAction="#handleModificar" text="Modificar" />
+     <Button layoutX="243.0" layoutY="200.0" prefHeight="37.0" prefWidth="95.0" onAction="#handleBuscar" text="Buscar" />
+     <Button layoutX="363.0" layoutY="114.0" prefHeight="37.0" prefWidth="95.0" onAction="#handleEliminar" text="Eliminar" />
+     <Button layoutX="363.0" layoutY="171.0" prefHeight="37.0" prefWidth="95.0" onAction="#handleListar" text="Listar" />
 
 </AnchorPane>

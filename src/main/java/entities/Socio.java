@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 public class Socio {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")  // Especificamos la columna para la clave primaria
     private Long id;  // Usamos Long para el ID (puede ser otro tipo, dependiendo de tus necesidades)
 
@@ -19,19 +20,17 @@ public class Socio {
     @Column(name = "telefono", nullable = true, length = 15)  // Número de teléfono del socio (opcional)
     private String telefono;
 
-    // Constructor sin parámetros
+    // Constructor sin parámetros necesario para Hibernate
     public Socio() {}
 
     // Constructor con parámetros
-    public Socio(Long id, String nombre, String direccion, String telefono) {
-        this.id = id;
+    public Socio(String nombre, String direccion, String telefono) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
     }
 
     // Getters y setters
-
     public Long getId() {
         return id;
     }
