@@ -8,6 +8,7 @@ import java.util.Date;
 public class Prestamo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")  // Especificamos la columna para la clave primaria
     private Long id;  // Usamos Long para el ID (puede ser otro tipo, dependiendo de tus necesidades)
 
